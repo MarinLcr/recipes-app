@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+@font-face {
+    font-family: 'carneys_gallery_demo_versioRg';
+    src: url('carneys_gallery-webfont.woff2') format('woff2'),
+         url('carneys_gallery-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+p, input, li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, a, span {
+    font-family: 'carneys_gallery_demo_versioRg', cursive;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+  }
