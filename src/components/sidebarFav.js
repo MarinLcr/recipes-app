@@ -30,22 +30,17 @@ const SidebarFav = () => {
                 tabl.push(ni)
             }
         }
-        console.log("TABL : ", tabl);
         let n=3;
         var shuffled = tabl.sort(function(){return .5 - Math.random()});
 
         var selected=shuffled.slice(0,n);
 
-        console.log("SELECT : ", selected)
         let finalTab = [];
         for(let n = 0; n < favorites.length; n++) {
             for (let t = 0; t < selected.length; t++) {
-                console.log("TEST : ", favorites[n].favId)
-                console.log("Autre test :", selected[t])
                 if (favorites[n].favId === selected[t]) {
                     finalTab.push(favorites[n])
                 }
-                console.log("finalTab : ", finalTab)
             }
         }
 

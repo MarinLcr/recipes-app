@@ -105,7 +105,7 @@ const Index = () => {
                             className="btn-floating halfway-fab waves-effect waves-light "><i className="material-icons">{recipe.favorites ? 'favorite' : 'favorite_border'}</i></a>
                 </div>
                 <div className="col-4">
-                    <SidebarFav />
+                    <SidebarFav /> 
                 </div>
             </div>
             <div className="row">

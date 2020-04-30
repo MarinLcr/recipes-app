@@ -61,11 +61,6 @@ const Home = () => {
         _fetchAllRecipes()
     }
 
-
-    const goToFavorites = () => {
-        history.push(`/favorites`);
-    }
-
     if (isLoading) {
 		return <Loader />;
     } 
@@ -89,8 +84,6 @@ const Home = () => {
                     )}
                 </div>
             </div>
-            <a onClick={() => goToFavorites()}
-                            className="btn-floating halfway-fab waves-effect waves-light "><i className="material-icons">menu_book</i></a>
             </div>
         )
         };

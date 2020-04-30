@@ -44,8 +44,6 @@ const Sidebar = () => {
     let randomArray = randomNumbers();
     let recipesSlice = sliceArray();
 
-    console.log("RAND : ", randomArray);
-
     const goToRecipe = (recipe ,id) => {
 
         if (favorites.length > 0) {
@@ -58,7 +56,6 @@ const Sidebar = () => {
                     break;
                 }
                 else {
-                    console.log("NOP")
                     setRecipe(recipe.recipe);
                     history.push(`/recipes/${id}`);
                 }
