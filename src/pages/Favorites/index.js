@@ -11,9 +11,6 @@ const Index = () => {
     const {
         favorites
     } = useContext(RecipesContext);
-
-
-    console.log("Favorites : ", favorites);
  
     return (
         <div className="App">
@@ -24,7 +21,7 @@ const Index = () => {
                 <p className="text-center mb-5 text-dark">Always more inspiration in the kitchen thanks to our easy, quick and trendy recipes.</p>
                 <div className="container-all-recipes">
                     {favorites.length !== 0 && favorites.map((recipe) =>
-                        <Recipe key={uuid()} recipe={recipe} id={recipe.index} />
+                        <Recipe key={uuid()} recipe={recipe} id={recipe.favId} />
                     )}
                 </div>
             </div>

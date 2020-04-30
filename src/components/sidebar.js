@@ -18,7 +18,7 @@ const Sidebar = () => {
             history.push(`/recipes`);
         } else {
         var arr = [recipe.index];
-        while(arr.length < 7){
+        while(arr.length < (recipes.length - 3)){
             var r = Math.floor(Math.random() * recipes.length);
             if(arr.indexOf(r) === -1) arr.push(r);
         }
@@ -30,6 +30,7 @@ const Sidebar = () => {
         let valuesArr = recipes;
         let removeValFrom = randomArray;
 
+        /* Ici que j'ajoute les index aux Recettes */
         valuesArr.forEach(function(itm, index){
         itm.recipe.index = index;
         });
@@ -43,11 +44,15 @@ const Sidebar = () => {
     let randomArray = randomNumbers();
     let recipesSlice = sliceArray();
 
+    console.log("RAND : ", randomArray);
+
     const goToRecipe = (recipe ,id) => {
 
         if (favorites.length > 0) {
+            let match = recipes[id].recipe.label;
+            let indents = [];
             for (var i = 0; i < favorites.length; i++) {
-                if (favorites[i].index === id) {
+                if (favorites[i].label === match) {
                     setRecipe(favorites[i]);
                     history.push(`/recipes/${id}`);
                     break;
@@ -58,6 +63,7 @@ const Sidebar = () => {
                     history.push(`/recipes/${id}`);
                 }
             }
+
         } else {
             setRecipe(recipe.recipe);
             history.push(`/recipes/${id}`);

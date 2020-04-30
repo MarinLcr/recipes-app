@@ -70,9 +70,6 @@ const Home = () => {
 		return <Loader />;
     } 
 
-
-    console.log("Rec : ", recipes);
-
         return (
             <div className="App">
                 <div className="row background-element mb-5">

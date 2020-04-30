@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from '../pages/Home/index';
 import Recipe from '../pages/Recipe/index';
+import RecipeFav from '../pages/RecipeFav/index';
 import Favorites from '../pages/Favorites/index';
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/recipes" component={Home} />
       <Route exact path="/favorites" component={Favorites} />
+      <Route path="/favorites/recipes/:id" component={RecipeFav} />    
       <Route path="/recipes/:id" component={Recipe} />
     </Switch>
     <Footer />

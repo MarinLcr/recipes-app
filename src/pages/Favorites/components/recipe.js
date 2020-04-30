@@ -8,7 +8,7 @@ const Recipe = ({ recipe, id }) => {
     const history = useHistory();
 
     const goToRecipe = (id) => {
-        history.push(`/recipes/${id}`);
+        history.push(`/favorites/recipes/${id}`);
       }
 
     const { label, image, ingredients} = recipe;

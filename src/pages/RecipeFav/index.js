@@ -4,7 +4,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 
 import RecipesContext from "../../contexts/RecipesContext";
 import Loader from "../../components/Loader";
-import Sidebar from "../../components/sidebar";
+import SidebarFav from "../../components/sidebarFav";
 import "../../styles/pages/_recipe.scss";
 
 
@@ -18,9 +18,7 @@ const Index = () => {
         recipe = false,
         setRecipe,
         favorites,
-        setFavorites,
-        favid,
-        setFavid
+        setFavorites
     } = useContext(RecipesContext);
 
     const history = useHistory();
@@ -33,8 +31,18 @@ const Index = () => {
             history.push(`/recipes`);
         }
         else if (favorites.length > 0) {
-            setRecipe(match());
-            setIsLoading(false);
+            for (var i = 0; i < favorites.length; i++) {
+                if (favorites[i].favId == id) {
+                    setRecipe(favorites[i]);
+                    setIsLoading(false);
+                    break;
+                }
+                else {
+                    const res = recipes[id].recipe
+                    setRecipe(res);
+                    setIsLoading(false);
+                }
+            }
         }
         else {
             try {
@@ -51,13 +59,12 @@ const Index = () => {
     const test = () => {
         if(recipe.hasOwnProperty("favorites") || recipe.favorites === true){
             // myObject has the favorites property
-            let recipeIndex = recipe.index
+            let recipeIndex = recipe.favId
             delete recipe.favorites;
-            delete recipe.favId;
             let favoritesCopy = [...favorites];
             
             for (var i = favoritesCopy.length - 1; i >= 0; --i) {
-                if (favoritesCopy[i].index == recipeIndex) {
+                if (favoritesCopy[i].favId == recipeIndex) {
                     favoritesCopy.splice(i,1);
                 }
             }
@@ -65,8 +72,6 @@ const Index = () => {
          }else{
             // myObject doesn't has hello property
             recipe.favorites = true;
-            recipe.favId = favid;
-            setFavid(favid+1);
             let favoritesCopy = [...favorites];
             favoritesCopy.push(recipe);
             setFavorites(favoritesCopy);
@@ -82,23 +87,9 @@ const Index = () => {
         return <Loader />;
     }
 
-    const match = () => {
-        let match = recipes[id].recipe.label;
-        let indents = [];
-        for (let i = 0; i < favorites.length; i++) {
-            if (favorites[i].label == match) {
-                favorites[i].favorites = true;
-                indents.push(favorites[i]);
-            }
-        }
-        if (indents.length === 0) {
-            return recipes[id].recipe
-        } else {
-            return indents[0];
-        }
-    }
 
     const { label, image, ingredients, totalTime, calories } = recipe;
+
     return (
         <div className="container mt-5">
             <div className="row">
@@ -114,7 +105,7 @@ const Index = () => {
                             className="btn-floating halfway-fab waves-effect waves-light "><i className="material-icons">{recipe.favorites ? 'favorite' : 'favorite_border'}</i></a>
                 </div>
                 <div className="col-4">
-                    <Sidebar />
+                    <SidebarFav />
                 </div>
             </div>
             <div className="row">

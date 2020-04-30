@@ -8,6 +8,7 @@ const Provider = ({ children }) => {
 	const [query, setQuery] = useState("pizza");
 	const [recipe, setRecipe] = useState([]);
 	const [favorites, setFavorites] = useState([]);
+	const [favid, setFavid] = useState(0);
 
 	return (
 		<Context.Provider
@@ -16,7 +17,8 @@ const Provider = ({ children }) => {
                 isLoading, setIsLoading,
 				query, setQuery,
 				recipe, setRecipe,
-				favorites, setFavorites
+				favorites, setFavorites,
+				favid, setFavid
 			}}
 		>
 			{children}
