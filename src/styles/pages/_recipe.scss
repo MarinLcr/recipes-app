@@ -1,35 +1,43 @@
 .image-each-recipe {
-    width: 100%;
+  width: 100%;
 }
 
 .title-ingredients {
-    position: relative;
-    &::before, &::after {
-        position: absolute;
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
     z-index: 1;
     top: 0;
     font-size: 1.8rem;
     line-height: 11px;
-    margin-left: .55rem;
+    margin-left: 0.55rem;
     padding-bottom: 1em;
-    font-family: Arial,Helvetica,sans serif;
-    letter-spacing: .08em;
-    content: '......................................................................................................................................................';
+    font-family: Arial, Helvetica, sans serif;
+    letter-spacing: 0.08em;
+    content: "......................................................................................................................................................";
     display: inline-block;
     height: 2.2rem;
     background-color: transparent;
     left: 0;
     width: 35%;
     overflow: hidden;
-    }
-    &::after {
-        text-align: right;
+  }
+  &::after {
+    text-align: right;
     left: auto;
     right: 0;
     z-index: 2;
-    }
+  }
 }
 
-  ul.browser-default li {
-    list-style-type: circle;
+ul.browser-default li {
+  list-style-type: circle;
+}
+
+@media screen and (max-width: 576px) {
+  .title-ingredients::before,
+  .title-ingredients::after {
+    width: 26%;
   }
+}
